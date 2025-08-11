@@ -2,23 +2,18 @@
 
 > A full-stack social media application built with modern web technologies, featuring real-time interactions, image sharing, and responsive design.
 
-![Vistagram Demo](./assets/app-demo.gif)
+[Live Demo](https://headout-vistagram-5w7w.vercel.app/) • [API Endpoint](https://headout-vistagram-nrf3.vercel.app/api/posts) • [GitHub Repository](https://github.com/Ashwath-saxena/Headout-vistagram)
 
-## 🚀 Live Demo
-
-**Frontend:** https://vistagram-frontend.vercel.app  
-**Backend API:** https://vistagram-backend.vercel.app
+</div>
 
 ## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Getting Started](#getting-started)
-- [API Documentation](#api-documentation)
-- [Deployment](#deployment)
-- [Screenshots](#screenshots)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Getting Started](#-getting-started)
+- [API Documentation](#-api-documentation)
+- [Deployment](#-deployment)
 
 ## 🎯 Overview
 
@@ -29,104 +24,125 @@ Vistagram is a modern social media platform that allows users to:
 - Experience seamless dark/light mode switching
 - Enjoy responsive design across all devices
 
-**Built for:** Headout Full-Stack Developer Assignment 
+**Built for:** Headout Full-Stack Developer Assignment  
 **Assignment Focus:** Full-stack development with modern UI/UX
 
 ## ✨ Features
 
-### 🔐 Authentication & Security
+<details>
+<summary><h3>🔐 Authentication & Security</h3></summary>
+
 - JWT-based authentication system
 - Secure user registration and login
 - Protected routes and API endpoints
 - Password validation and security
+</details>
 
-### 📸 Media & Content
+<details>
+<summary><h3>📸 Media & Content</h3></summary>
+
 - Real-time image upload to Cloudinary CDN
 - Drag & drop file upload interface
 - Image optimization and responsive delivery
 - Location tagging for posts
+</details>
 
-### 🎨 User Experience
+<details>
+<summary><h3>🎨 User Experience</h3></summary>
+
 - **Dark/Light Mode Toggle** - Seamless theme switching
 - **Responsive Design** - Perfect on mobile, tablet, and desktop
 - **Smooth Animations** - Professional micro-interactions
 - **Loading States** - Enhanced user feedback
+</details>
 
-### 📱 Social Features
+<details>
+<summary><h3>📱 Social Features</h3></summary>
+
 - Timeline/Feed with pagination
 - Like functionality
 - User profiles with post galleries
 - Real-time interaction updates
+</details>
 
 ## 🛠 Tech Stack
 
-### Frontend
-- **React 18** - Modern React with hooks
-- **Vite** - Fast development and build tool
-- **Tailwind CSS** - Utility-first styling
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API calls
-- **Lucide React** - Beautiful icon library
+<table>
+<tr>
+<th>Frontend</th>
+<th>Backend</th>
+<th>DevOps & Deployment</th>
+</tr>
+<tr>
+<td>
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web application framework
-- **PostgreSQL** - Relational database
-- **Prisma ORM** - Type-safe database client
-- **Cloudinary** - Image storage and optimization
-- **JWT** - JSON Web Tokens for authentication
+- **React 18**
+- **Vite**
+- **Tailwind CSS**
+- **React Router**
+- **Axios**
+- **Lucide React**
 
-### DevOps & Deployment
-- **Vercel** - Serverless deployment platform
-- **Git** - Version control
-- **Environment Variables** - Secure configuration
+</td>
+<td>
+
+- **Node.js**
+- **Express.js**
+- **PostgreSQL**
+- **Prisma ORM**
+- **Cloudinary**
+- **JWT**
+
+</td>
+<td>
+
+- **Vercel**
+- **Railway**
+- **Git**
+- **Environment Variables**
+
+</td>
+</tr>
+</table>
 
 ## 🏗 Architecture
 
-```
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ React Client    │───▶│ Express API    │───▶│ PostgreSQL DB  │
-│ (Port 3000)    │ │ (Port 5000)    │ │ (Cloud)        │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-        │                   │                   │
-        │                   │                   │
-        ▼                   ▼                   ▼
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ Vercel Frontend │ │ Vercel Backend  │ │ Railway/Neon DB │
-│ Deployment      │ │ Deployment      │ │ Hosting         │
-└─────────────────┘ └─────────────────┘ └─────────────────┘
-        │
-        ▼
-┌─────────────────┐
-│ Cloudinary      │
-│ Image Storage   │
-└─────────────────┘
+```mermaid
+graph TD
+    A[React Client] -->|API Calls| B[Express API]
+    B -->|Database Queries| C[PostgreSQL DB]
+    B -->|Image Storage| D[Cloudinary]
+    A -->|Deployment| E[Vercel Frontend]
+    B -->|Deployment| F[Vercel Backend]
+    C -->|Hosting| G[Railway DB]
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js 18+ installed
-- PostgreSQL database
+- PostgreSQL database (or Railway account)
 - Cloudinary account
 - Git installed
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/your-username/vistagram-social-media-app.git
-cd vistagram-social-media-app
-```
+<details>
+<summary><h3>1. Clone Repository</h3></summary>
 
-### 2. Backend Setup
+```bash
+git clone https://github.com/Ashwath-saxena/Headout-vistagram.git
+cd Headout-vistagram
+```
+</details>
+
+<details>
+<summary><h3>2. Backend Setup</h3></summary>
+
 ```bash
 cd server
 npm install
 
-# Create .env file
-cp .env.example .env
-
-# Add your environment variables:
-DATABASE_URL=your_postgresql_url
+# Create .env file with:
+DATABASE_URL=your_railway_postgresql_url
 JWT_SECRET=your_jwt_secret
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
@@ -139,8 +155,11 @@ npx prisma db push
 # Start development server
 npm run dev
 ```
+</details>
 
-### 3. Frontend Setup
+<details>
+<summary><h3>3. Frontend Setup</h3></summary>
+
 ```bash
 cd ../client
 npm install
@@ -151,6 +170,7 @@ echo "VITE_API_URL=http://localhost:5000/api" > .env.local
 # Start development server
 npm run dev
 ```
+</details>
 
 ### 4. Access Application
 - **Frontend:** http://localhost:3000
@@ -159,32 +179,40 @@ npm run dev
 
 ## 📚 API Documentation
 
-### Authentication Endpoints
-```
+<details>
+<summary><h3>Authentication Endpoints</h3></summary>
+
+```http
 POST /api/auth/register - User registration
-POST /api/auth/login - User login
-GET /api/auth/me - Get current user
+POST /api/auth/login    - User login
+GET  /api/auth/me      - Get current user
 ```
+</details>
 
-### Posts Endpoints
-```
-GET /api/posts - Get all posts (timeline)
-POST /api/posts - Create new post (with image)
-GET /api/posts/:id - Get specific post
+<details>
+<summary><h3>Posts Endpoints</h3></summary>
+
+```http
+GET  /api/posts         - Get all posts (timeline)
+POST /api/posts         - Create new post (with image)
+GET  /api/posts/:id     - Get specific post
 POST /api/posts/:id/like - Like/unlike post
-POST /api/posts/:id/share - Share post
 ```
+</details>
 
-### User Endpoints
-```
+<details>
+<summary><h3>User Endpoints</h3></summary>
+
+```http
 GET /api/users/:username - Get user profile
 ```
+</details>
 
 ## 🌐 Deployment
 
 ### Production URLs
-- **Frontend:** https://vistagram-frontend.vercel.app
-- **Backend:** https://vistagram-backend.vercel.app
+- **Frontend:** https://headout-vistagram-5w7w.vercel.app
+- **Backend:** https://headout-vistagram-nrf3.vercel.app
 
 ### Deployment Stack
 - **Frontend Hosting:** Vercel (Static Site)
@@ -193,42 +221,73 @@ GET /api/users/:username - Get user profile
 - **Image Storage:** Cloudinary CDN
 - **Domain Management:** Vercel DNS
 
+<details>
+<summary><h3>Environment Variables</h3></summary>
+
+```env
+# Backend (.env)
+DATABASE_URL=postgresql://postgres:PASSWORD@trolley.proxy.rlwy.net:PORT/railway
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+NODE_ENV=production
+
+# Frontend (Vercel Environment Variables)
+VITE_API_URL=https://headout-vistagram-nrf3.vercel.app/api
+```
+</details>
+
 ## 🎯 Key Implementation Highlights
 
-### 1. **Advanced UI/UX**
+<details>
+<summary><h3>1. Advanced UI/UX</h3></summary>
+
 - Custom Tailwind CSS configuration with dark mode
 - Smooth animations and micro-interactions
 - Responsive design with mobile-first approach
 - Professional glassmorphism effects
+</details>
 
-### 2. **Robust Backend Architecture**
+<details>
+<summary><h3>2. Robust Backend Architecture</h3></summary>
+
 - RESTful API design with proper HTTP status codes
 - JWT authentication with middleware protection
 - File upload handling with Multer and Cloudinary
 - Database relationships with Prisma ORM
+</details>
 
-### 3. **Production-Ready Features**
+<details>
+<summary><h3>3. Production-Ready Features</h3></summary>
+
 - Environment-based configuration
 - Error handling and validation
 - CORS configuration for cross-origin requests
 - Secure authentication flow
+</details>
 
-### 4. **Performance Optimizations**
+<details>
+<summary><h3>4. Performance Optimizations</h3></summary>
+
 - Image optimization with Cloudinary
 - Lazy loading for images
 - Efficient pagination for posts
 - Optimized bundle sizes with Vite
+</details>
 
 ## 🧪 Testing
 
-### Manual Testing Completed
-- ✅ User registration and authentication
-- ✅ Image upload and storage
-- ✅ Post creation and timeline display
-- ✅ Like/unlike functionality
-- ✅ Responsive design across devices
-- ✅ Dark/light mode switching
-- ✅ API endpoint functionality
+### Test Results
+| Category | Status |
+|----------|---------|
+| User Authentication | ✅ Passed |
+| Image Upload | ✅ Passed |
+| Post Creation | ✅ Passed |
+| Like Functionality | ✅ Passed |
+| Responsive Design | ✅ Passed |
+| Dark/Light Mode | ✅ Passed |
+| API Endpoints | ✅ Passed |
 
 ### Browser Compatibility
 - ✅ Chrome (Latest)
@@ -249,8 +308,16 @@ GET /api/users/:username - Get user profile
 
 ## 📞 Contact
 
-**Developer:** Ashwath Saxena
+<div align="center">
+
+**Developer:** Ashwath Saxena  
+**Email:** [[My_Email](work.ashwathsaxena.as@gmail.com)]  
+**LinkedIn:** [[My LinkedIn Profile](https://www.linkedin.com/in/ashwath-saxena/)]  
+**Portfolio:** [[My Portfolio URL](https://portfolio-ashwath-saxena.vercel.app/)] 
+**Github:** [[My Github URL](https://github.com/Ashwath-saxena)]
 
 ---
 
 **Built with ❤️ for Headout - Showcasing modern full-stack development skills**
+
+</div>
