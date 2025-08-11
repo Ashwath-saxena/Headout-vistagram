@@ -39,18 +39,21 @@ const allowedOrigins = [
   'http://localhost:5173',
   process.env.CLIENT_URL,  // Your frontend URL from environment
   process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,  // Dynamic Vercel URL
+  'https://headout-vistagram-5w7w.vercel.app', // Fallback frontend URL
 ].filter(Boolean); // Remove any null/undefined values
 
+// CORS configuration with dynamic origin checking
 const corsOptions = {
   origin: function (origin, callback) {
-    console.log('Request origin:', origin); // For debugging
-    console.log('Allowed origins:', allowedOrigins); // For debugging
+    console.log('🔍 Request origin:', origin);
+    console.log('✅ Allowed origins:', allowedOrigins);
     
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
+      console.error('❌ Origin not allowed by CORS:', origin);
       callback(new Error(`Origin ${origin} not allowed by CORS`));
     }
   },
