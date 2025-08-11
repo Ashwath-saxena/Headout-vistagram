@@ -29,8 +29,7 @@ Vistagram is a modern social media platform that allows users to:
 - Experience seamless dark/light mode switching
 - Enjoy responsive design across all devices
 
-**Built for:** Headout Full-Stack Developer Assignment  
-**Development Time:** [Your timeframe]  
+**Built for:** Headout Full-Stack Developer Assignment 
 **Assignment Focus:** Full-stack development with modern UI/UX
 
 ## ✨ Features
@@ -55,7 +54,7 @@ Vistagram is a modern social media platform that allows users to:
 
 ### 📱 Social Features
 - Timeline/Feed with pagination
-- Like and share functionality
+- Like functionality
 - User profiles with post galleries
 - Real-time interaction updates
 
@@ -79,7 +78,6 @@ Vistagram is a modern social media platform that allows users to:
 
 ### DevOps & Deployment
 - **Vercel** - Serverless deployment platform
-- **Railway/Neon** - PostgreSQL cloud hosting
 - **Git** - Version control
 - **Environment Variables** - Secure configuration
 
@@ -182,8 +180,6 @@ POST /api/posts/:id/share - Share post
 GET /api/users/:username - Get user profile
 ```
 
-**📖 [Full API Documentation](./docs/API_DOCUMENTATION.md)**
-
 ## 🌐 Deployment
 
 ### Production URLs
@@ -196,8 +192,6 @@ GET /api/users/:username - Get user profile
 - **Database:** Railway PostgreSQL
 - **Image Storage:** Cloudinary CDN
 - **Domain Management:** Vercel DNS
-
-**📖 [Deployment Guide](./docs/DEPLOYMENT.md)**
 
 ## 🎯 Key Implementation Highlights
 
