@@ -37,7 +37,7 @@ app.use(limiter);
 app.use(cors({
   origin: [process.env.CLIENT_URL || 'http://localhost:3000', 'http://localhost:5173',
       'https://headout-vistagram-5w7w.vercel.app/', // Add this after frontend deployment
-    // 'https://vistagram-frontend.vercel.app'    // Update with your actual domain
+    'https://headout-vistagram-nrf3.vercel.app/'    // Update with your actual domain
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
