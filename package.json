@@ -1,0 +1,19 @@
+{
+  "name": "vistagram",
+  "version": "1.0.0",
+  "description": "A full-stack Instagram-like app for POI sharing",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "test": "cd server && npm test && cd ..\\client && npm test",
+    "install:all": "npm install && cd server && npm install && cd ..\\client && npm install",
+    "setup:db": "cd server && npx prisma generate && npx prisma db push",
+    "seed:db": "cd server && npm run db:seed",
+    "studio:db": "cd server && npx prisma studio"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
