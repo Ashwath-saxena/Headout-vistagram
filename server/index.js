@@ -33,16 +33,36 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-// CORS configuration for Windows development
-app.use(cors({
-  origin: [process.env.CLIENT_URL || 'http://localhost:3000', 'http://localhost:5173',
-      'https://headout-vistagram-5w7w.vercel.app/', // Add this after frontend deployment
-    'https://headout-vistagram-nrf3.vercel.app/'    // Update with your actual domain
-  ],
+// Get allowed origins from environment variables
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  process.env.CLIENT_URL,  // Your frontend URL from environment
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,  // Dynamic Vercel URL
+].filter(Boolean); // Remove any null/undefined values
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log('Request origin:', origin); // For debugging
+    console.log('Allowed origins:', allowedOrigins); // For debugging
+    
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  preflightContinue: false,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
