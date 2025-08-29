@@ -1,10 +1,10 @@
+// client/src/components/PostCard.jsx
 import React, { useState } from 'react';
 import { Heart, MessageCircle, Share, MapPin, MoreHorizontal, Bookmark } from 'lucide-react';
 import api from '../utils/api';
 
-const PostCard = ({ post, onLike, index = 0 }) => {
+const PostCard = ({ post, onLike, toggleBookmark, isBookmarked, index = 0 }) => {
   const [isLiking, setIsLiking] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleLike = async () => {
@@ -119,15 +119,13 @@ const PostCard = ({ post, onLike, index = 0 }) => {
             </button>
           </div>
           
-          <button 
-            onClick={() => setIsBookmarked(!isBookmarked)}
-            className={`transition-all duration-300 transform hover:scale-110 active:scale-90 ${
-              isBookmarked 
-                ? 'text-yellow-500' 
-                : 'text-gray-700 dark:text-gray-200 hover:text-yellow-500'
+          <button
+            onClick={() => toggleBookmark && toggleBookmark(post.id)}
+            className={`transition-all duration-300 hover:scale-110 ${
+              isBookmarked && isBookmarked(post.id) ? 'text-yellow-500' : 'text-gray-400'
             }`}
           >
-            <Bookmark className={`h-6 w-6 ${isBookmarked ? 'fill-current' : ''}`} />
+            <Bookmark className={`h-6 w-6 ${isBookmarked && isBookmarked(post.id) ? 'fill-current' : ''}`} />
           </button>
         </div>
 

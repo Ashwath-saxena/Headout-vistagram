@@ -280,7 +280,7 @@ const CreatePost = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Image Upload/Camera Section */}
           <div className={`${mounted ? 'animate-fade-in-up animate-delay-400' : 'opacity-0'}`}>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-3 flex items-center space-x-2">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-200 mb-3 flex items-center space-x-2">
               <ImageIcon className="h-4 w-4" />
               <span>Upload Image *</span>
             </label>
